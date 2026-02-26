@@ -5,10 +5,13 @@ public class MainExperiment {
     private static final int WARMUP_RUNS = 2;
     private static final int MEASURED_RUNS = 5;
 
-    public static void main(String[] args) {
-        runFunctionalTest();
-        runPerformanceExperiments();
+    public static void main(String[] args) {                
+            runFunctionalTest();
+            runPerformanceExperiments();
+       
     }
+
+    
 
     private static void runFunctionalTest() {
         System.out.println("=== Functional Test (Undo/Redo) ===");
@@ -21,11 +24,11 @@ public class MainExperiment {
         Command cmd1 = new InsertCommand(doc, 0, "Hello ");
         manager.executeCommand(cmd1);
 
-        // 2) Insert "World!"
-        Command cmd2 = new InsertCommand(doc, doc.length(), "World!");
+        // 2) Insert "World"
+        Command cmd2 = new InsertCommand(doc, doc.length(), "World");
         manager.executeCommand(cmd2);
 
-        System.out.println("Current     : " + doc.getText()); // Expected: Hello World!
+        System.out.println("Current     : " + doc.getText()); // Expected: Hello World
 
         // 3) Undo
         manager.undo();
